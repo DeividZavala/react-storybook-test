@@ -36,7 +36,7 @@ const store = {
 
 storiesOf('TaskList', module)
     .addDecorator(story => <Provider store={store}><div style={{ padding: '3rem' }}>{story()}</div></Provider>)
-    .add('default', () => <PureTaskList tasks={defaultTasks} {...actions} />)
-    .add('withPinnedTasks', () => <PureTaskList tasks={withPinnedTasks} {...actions} />)
-    .add('loading', () => <PureTaskList loading tasks={[]} {...actions} />)
+    .add('default', () => <PureTaskList {...actions} />)
+    .add('withPinnedTasks', () => <PureTaskList {...actions} />)
+    .add('loading', () => <PureTaskList loading {...actions} />)
     .add('empty', () => <PureTaskList empty {...actions} />);

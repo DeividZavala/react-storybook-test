@@ -57,8 +57,10 @@ const PureTaskList = ({ loading, tasks, onPinTask, onArchiveTask, empty }) => {
 };
 
 PureTaskList.propTypes = {
+    /** esta cargando la información */
     loading: PropTypes.bool,
     tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
+    empty: PropTypes.bool,
     onPinTask: PropTypes.func.isRequired,
     onArchiveTask: PropTypes.func.isRequired,
 };
