@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {PropTypes} from 'prop-types';
 import Task from '../Task/Task';
 
 const TaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
@@ -52,6 +52,17 @@ const TaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
             {tasksInOrder.map(task => <Task key={task.id} task={task} {...events} />)}
         </div>
     );
+};
+
+TaskList.propTypes = {
+    loading: PropTypes.bool,
+    tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
+    onPinTask: PropTypes.func.isRequired,
+    onArchiveTask: PropTypes.func.isRequired,
+};
+
+TaskList.defaultProps = {
+    loading: false,
 };
 
 export default TaskList;
