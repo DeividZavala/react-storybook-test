@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
 
 import Task from './Task';
 
@@ -20,6 +21,15 @@ export const actions = {
 };
 
 storiesOf('Task', module)
-    .add('default', () => <Task task={createTask({ state: 'TASK_INBOX' })} {...actions} />)
+    .addDecorator(withInfo)
+    .add(
+        'default',
+        () => <Task task={createTask({ state: 'TASK_INBOX' })} {...actions} />,
+        {
+            info: {
+                header: {},
+                text: 'test'
+            }
+        })
     .add('pinned', () => <Task task={createTask({ state: 'TASK_PINNED' })} {...actions} />)
     .add('archived', () => <Task task={createTask({ state: 'TASK_ARCHIVED' })} {...actions} />);

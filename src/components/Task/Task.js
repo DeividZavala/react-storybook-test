@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
+/** Checando a ver si sale la descripcion */
 const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) => {
     return (
         <div className={`list-item ${state}`}>
@@ -29,11 +30,12 @@ const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) => {
 };
 
 Task.propTypes = {
+    /** la task que se mostrará*/
     task: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         state: PropTypes.string.isRequired,
-    }),
+    }).isRequired,
     onArchiveTask: PropTypes.func,
     onPinTask: PropTypes.func,
 };
